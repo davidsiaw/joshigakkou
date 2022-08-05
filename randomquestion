@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'readline'
+require_relative 'sentence'
+
+sf = SentenceFile.new('sentences.yml')
+
+sm = sf.sample
+puts sm.sans_particles
+
+answers = []
+
+sm.particles.each_with_index do |x, i|
+  print "[#{i + 1}] = "
+  input = Readline.readline
+  answers << [x, input]
+end
+
+puts
+puts "答えは：#{sm.particles_highlighted}"
+answers.each_with_index do |x, i|
+  if x[0] == x[1]
+    puts "[#{i+1}] = #{x[0]} 正解".colorize(:green)
+  else
+    puts "[#{i+1}] = #{x[0]} ❌ (あなたの答えは：#{x[1]})"
+  end
+end

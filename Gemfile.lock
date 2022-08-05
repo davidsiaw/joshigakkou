@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.8.1)
+    mecab (0.996)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  colorize
+  mecab
+
+BUNDLED WITH
+   2.1.2
